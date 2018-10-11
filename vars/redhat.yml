@@ -1,0 +1,2 @@
+lldpd_settings_file: /etc/sysconfig/lldpd
+lldpd_settings_var: LLDPD_OPTIONS

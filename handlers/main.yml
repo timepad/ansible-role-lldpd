@@ -1,0 +1,7 @@
+---
+# handlers file for ansible-role-smartd
+
+ - name: restart lldpd
+   service:
+     name: lldpd
+     state: restarted

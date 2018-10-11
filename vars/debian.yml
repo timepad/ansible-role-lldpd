@@ -1,0 +1,2 @@
+lldpd_settings_file: /etc/default/lldpd
+lldpd_settings_var: DAEMON_ARGS

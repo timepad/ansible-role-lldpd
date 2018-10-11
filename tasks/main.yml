@@ -1,0 +1,18 @@
+---
+- name: Load OS-specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - ../vars/{{ ansible_distribution }}.yml
+    - ../vars/{{ ansible_os_family }}.yml
+
+- name: Install lldpd
+  package:
+    name: lldpd
+    state: present
+
+- name: configure lldpd
+  lineinfile:
+    path: "{{ lldpd_settings_file }}"
+    regexp: "{{ lldpd_settings_var }}"
+    line: '{{ lldpd_settings_var }}="{{ lldpd_args }}"'
+  notify: restart lldpd
